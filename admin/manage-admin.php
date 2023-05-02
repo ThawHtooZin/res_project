@@ -12,6 +12,22 @@ include 'partials/menu.php';
           <?php
           unset($_SESSION['add']);
         } ?>
+        <?php if(!empty($_SESSION['remove'])){
+          ?>
+          <div class="alert alert-warning">
+            <strong>Success!</strong> <?php echo $_SESSION['remove']; ?>
+          </div>
+          <?php
+          unset($_SESSION['remove']);
+        } ?>
+        <?php if(!empty($_SESSION['update'])){
+          ?>
+          <div class="alert alert-warning">
+            <strong>Success!</strong> <?php echo $_SESSION['update']; ?>
+          </div>
+          <?php
+          unset($_SESSION['update']);
+        } ?>
         <br><br>
         <!-- button to add admin -->
         <a href="add-admin.php" class="btn-primary">Add Admin</a>
@@ -37,8 +53,9 @@ include 'partials/menu.php';
               <td><?php echo $data['full_name']; ?></td>
               <td><?php echo $data['username']; ?></td>
               <td>
-                <a href="#" class="btn-secondary2">Update User</a>
-                <a href="#" class="btn-danger2">Delete User</a>
+                <a href="update-password.php?id=<?php echo $data['id']; ?>" class="btn-primary">Update Password</a>
+                <a href="update-admin.php?id=<?php echo $data['id']; ?>" class="btn-secondary2">Update User</a>
+                <a href="delete-admin.php?id=<?php echo $data['id'];?>" class="btn-danger2">Delete User</a>
               </td>
             </tr>
             <?php
