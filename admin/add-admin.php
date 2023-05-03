@@ -1,5 +1,6 @@
 <?php
 include 'partials/menu.php';
+require 'config/userauth.php';
 ?>
 <?php
 if($_POST){

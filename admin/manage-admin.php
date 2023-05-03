@@ -1,5 +1,6 @@
 <?php
-include 'partials/menu.php';
+include 'partials/enu.php';
+require 'config/userauth.php';
 ?>
     <div class="main-content">
       <div class="wrapper">
@@ -27,6 +28,14 @@ include 'partials/menu.php';
           </div>
           <?php
           unset($_SESSION['update']);
+        } ?>
+        <?php if(!empty($_SESSION['login'])){
+          ?>
+          <div class="alert alert-success">
+            <strong>Success!</strong> <?php echo $_SESSION['login']; ?>
+          </div>
+          <?php
+          unset($_SESSION['login']);
         } ?>
         <br><br>
         <!-- button to add admin -->
