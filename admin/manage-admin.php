@@ -1,5 +1,5 @@
 <?php
-include 'partials/enu.php';
+include 'partials/menu.php';
 require 'config/userauth.php';
 ?>
     <div class="main-content">
