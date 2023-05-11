@@ -37,7 +37,7 @@
                         <?php echo $data['description'] ?>
                     </p>
                     <br>
-                    <a href="#" class="btn btn-primary">Order Now</a>
+                    <a href="order.php?id=<?php echo $data['id']; ?>" class="btn btn-primary">Order Now</a>
                 </div>
             </div>
             <?php

@@ -26,7 +26,7 @@
             foreach ($datas as $data) {
 
             ?>
-            <a href="category-foods.html">
+            <a href="category-foods.php?id=<?php echo $data['id']; ?>">
             <div class="box-3 float-container">
                 <img src="admin/image/<?php echo $data['image_name']; ?>" alt="Pizza" class="img-responsive img-curve">
 
@@ -78,7 +78,7 @@
         </div>
 
         <p class="text-center">
-            <a href="#">See All Foods</a>
+            <a href="foods.php">See All Foods</a>
         </p>
     </section>
     <!-- fOOD Menu Section Ends Here -->

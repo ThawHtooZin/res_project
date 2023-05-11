@@ -33,7 +33,7 @@ if($_POST){
         $active = $_POST['active'];
         move_uploaded_file($_FILES['image']['tmp_name'], $file);
 
-        $stmt = $pdo->prepare("UPDATE tbl_food SET title='$title', description=$description, price=$price, image_name='$image', featured='$featured', active='$active' WHERE id=".$_GET['id']);
+        $stmt = $pdo->prepare("UPDATE tbl_food SET title='$title', description='$description', price='$price', image_name='$image', featured='$featured', active='$active' WHERE id=".$_GET['id']);
         $stmt->execute();
 
         if($stmt){
@@ -50,7 +50,7 @@ if($_POST){
       $price = $_POST['price'];
       $featured = $_POST['featured'];
       $active = $_POST['active'];
-      $stmt = $pdo->prepare("UPDATE tbl_food SET title='$title', description=$description, price=$price, featured='$featured', active='$active' WHERE id=".$_GET['id']);
+      $stmt = $pdo->prepare("UPDATE tbl_food SET title='$title', description='$description', price='$price', featured='$featured', active='$active' WHERE id=".$_GET['id']);
       $stmt->execute();
 
       if($stmt){

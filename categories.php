@@ -11,11 +11,10 @@
             $datas = $stmt->fetchall();
             foreach ($datas as $data) {
             ?>
-            <a href="category-foods.html">
+            <a href="category-foods.php?id=<?php echo $data['id']; ?>">
             <div class="box-3 float-container">
                 <img src="admin/image/<?php echo $data['image_name'] ?>" alt="Pizza" class="img-responsive img-curve">
-
-                <h3 class="float-text text-white">Pizza</h3>
+                <h3 class="float-text text-white"><?php echo  $data['title']; ?></h3>
             </div>
             </a>
             <?php
