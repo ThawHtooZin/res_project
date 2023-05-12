@@ -7,7 +7,11 @@
     <title>Restaurant Website</title>
 
     <!-- Link our CSS file -->
-    <link rel="stylesheet" href="css/style.css">
+    <style media="screen">
+      <?php
+      include 'css/style.css';
+      ?>
+    </style>
 </head>
 
 <body>

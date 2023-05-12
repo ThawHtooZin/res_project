@@ -36,7 +36,7 @@ if($_POST){
     $food = $_POST['food'];
     $price = $_POST['price'];
     $quentity = $_POST['qty'];
-    $total_price = $_POST['total_price'];
+    $total_price = $quentity * $price;
     $status = $_POST['status'];
     $name = $_POST['name'];
     $contact = $_POST['contact'];
@@ -83,7 +83,10 @@ $data = $stmt->fetch(PDO::FETCH_ASSOC);
             <input type="text" name="total_price" class="form-control" placeholder="Enter Your Full Name" required value="<?php echo $data['total']; ?>">
             <p class="text-danger"><?php if(!empty($total_priceerror)){echo $total_priceerror;} ?></p>
             <label>status</label>
-            <input type="text" name="status" class="form-control" placeholder="Enter Your Full Name" required value="<?php echo $data['status']; ?>">
+            <select class="form-control" name="status">
+              <option value="reserved">Reserved</option>
+              <option value="canceled">Canceled</option>
+            </select>
             <p class="text-danger"><?php if(!empty($statuserror)){echo $statuserror;} ?></p>
             <label>Name</label>
             <input type="text" name="name" class="form-control" placeholder="Enter Your Full Name" required value="<?php echo $data['customer_name']; ?>">

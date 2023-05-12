@@ -20,7 +20,7 @@
 
             <?php
             $search = $_POST['search'];
-            $stmt = $pdo->prepare("SELECT * FROM tbl_food WHERE title='$search'");
+            $stmt = $pdo->prepare("SELECT * FROM tbl_food WHERE title LIKE '%$search%' ");
             $stmt->execute();
             $datas = $stmt->fetchall();
             foreach ($datas as $data) {

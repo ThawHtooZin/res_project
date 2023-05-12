@@ -5,12 +5,6 @@
     <section class="food-search">
         <div class="container">
           <?php
-          $stmt = $pdo->prepare("SELECT * FROM tbl_food WHERE id=".$_GET['id']);
-          $stmt->execute();
-          $data = $stmt->fetch(PDO::FETCH_ASSOC);
-
-          ?>
-          <?php
           if($_POST){
             if(empty($_POST['full_name']) || empty($_POST['contact']) || empty($_POST['email']) || empty($_POST['address'])){
               if(empty($_POST['full_name'])){
@@ -45,26 +39,9 @@
             }
           }
           ?>
-            <h2 class="text-center text-white">Fill this form to confirm your order.</h2>
+            <h2 class="text-center text-white">Fill the form and at the food to your card.</h2>
 
             <form action="" class="order" method="post">
-                <fieldset>
-                    <legend>Selected Food</legend>
-
-                    <div class="food-menu-img">
-                        <img src="admin/image/<?php echo $data['image_name']; ?>" class="img-responsive img-curve">
-                    </div>
-
-                    <div class="food-menu-desc">
-                        <h3><?php echo $data['title']; ?></h3>
-                        <p class="food-price"><?php echo $data['price'] ?>ks</p>
-
-                        <div class="order-label">Quantity</div>
-                        <input type="number" name="qty" class="input-responsive" value="1" required>
-
-                    </div>
-
-                </fieldset>
 
                 <fieldset>
                     <legend>Delivery Details</legend>
@@ -84,12 +61,52 @@
                     <textarea name="address" rows="10" placeholder="Enter Your Address" class="input-responsive" ></textarea>
                     <p style="color:red;"><?php if(!empty($addresserror)){echo $addresserror;} ?></p>
                     <br>
-                    <button type="submit" class="btn btn-primary">Confirm Order</button>
+                    <div class="text-center">
+                      <button type="submit" class="btn btn-primary">Order Now</button>
+                    </div>
                 </fieldset>
-
+                
             </form>
 
         </div>
+    </section>
+    <section class="food-menu">
+      <div class="container">
+        <h2 class="text-center">Foods</h2>
+
+        <?php
+        $stmt = $pdo->prepare("SELECT * FROM tbl_food");
+        $stmt->execute();
+        $datas = $stmt->fetchall();
+        foreach ($datas as $data) {
+          ?>
+          <div class="food-menu-box">
+            <div class="food-menu-img">
+              <img src="admin/image/<?php echo $data['image_name']; ?>" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
+            </div>
+
+            <div class="food-menu-desc">
+              <h4><?php echo $data['title']; ?></h4>
+              <p class="food-price"><?php echo $data['price']; ?>ks</p>
+              <p class="food-detail">
+                <?php echo $data['description']; ?>
+              </p>
+              <br>
+
+              <a href="" class="btn btn-primary">Add</a>
+            </div>
+          </div>
+          <?php
+        }
+        ?>
+
+
+        <div class="clearfix"></div>
+
+
+
+      </div>
+
     </section>
     <!-- fOOD sEARCH Section Ends Here -->
 

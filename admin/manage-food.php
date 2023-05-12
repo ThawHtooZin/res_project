@@ -76,8 +76,8 @@ require 'config/userauth.php';
             <td><?php echo $data['featured']; ?></td>
             <td><?php echo $data['active']; ?></td>
             <td>
-              <a href="update-food.php?id=<?php echo $data['id']; ?>" class="btn btn-secondary">Update User</a>
-              <a href="delete-food.php?id=<?php echo $data['id']; ?>" class="btn btn-danger">Delete User</a>
+              <a href="update-food.php?id=<?php echo $data['id']; ?>" class="btn btn-secondary">Update Food</a>
+              <a href="delete-food.php?id=<?php echo $data['id']; ?>" class="btn btn-danger">Delete Food</a>
             </td>
           </tr>
           <?php
